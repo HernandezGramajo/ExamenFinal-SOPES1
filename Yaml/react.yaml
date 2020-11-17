@@ -1,9 +1,23 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-    name:apinodejs
+  labels:
+    app: react
+  name: react-api
 spec:
-    containers:
-    - name: webLogin
-      image: gramajo/pagina-we-login:tagname
-    
+  selector:
+    matchLabels:
+      app: react
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+      - image: gramajo/pagina-we-login:latest
+        name: react
+        ports:
+        - containerPort: 80
+          name: http
+

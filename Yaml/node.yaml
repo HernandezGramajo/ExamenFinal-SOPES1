@@ -1,8 +1,24 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-    name:apinodejs
+  labels:
+    app: nodejj
+  name: nodejs-api
 spec:
-    containers:
-    - name: ApiNodejs
-      image: gramajo/api-node:tagname
+  selector:
+    matchLabels:
+      app: nodejs
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nodejs
+    spec:
+      containers:
+      - image: gramajo/api-node:latest
+        name: nodejs
+        ports:
+        - containerPort: 3000
+          name: http
+
+ 

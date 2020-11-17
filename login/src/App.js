@@ -15,7 +15,7 @@ class App extends Component {
 
     
 
-     url = "http://localhost:3000";
+     url = "http://172.17.0.7:3000";
 
     handleChange= async e => {
         this.setState({
