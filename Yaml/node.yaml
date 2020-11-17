@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name:apinodejs
+spec:
+    containers:
+    - name: ApiNodejs
+      image: gramajo/api-node:tagname
